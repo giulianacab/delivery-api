@@ -12,7 +12,7 @@ const mealSchema = new Schema({
     calories: { type: Number, required: true },
     ingredients: { type: String, required: true },
     description: { type: String, required: true, minLength: 10 },
-    servings: { type: String, required: true },
+    servings: { type: String, required: true, default: "Individual" },
     category: { type: String, required: true, enum: ["Entrada", "Prato principal", "Sobremesa", "Bebida"] },
     img: { type: String, default: "https://static.vecteezy.com/system/resources/previews/007/516/169/original/illustration-of-serving-icons-cooks-restaurants-dessert-bowls-free-vector.jpg" }
 });
@@ -20,3 +20,5 @@ const mealSchema = new Schema({
 const MealModel = model("Meal", mealSchema);
 
 export { MealModel };
+
+/*Add qualquer coisa só pro commit ir de novo*/
