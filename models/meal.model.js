@@ -1,7 +1,14 @@
 import { Schema, model } from "mongoose";
 
 const mealSchema = new Schema({
+    ownerOrder: { type: Schema.Types.ObjectId, ref: "Order" },
+    ownerRestaurants: { type: Schema.Types.ObjectId, ref: "Restaurants" },
+    /* Referenciamos o meal com:
+    -> order (porque uma order precisa ter meals);
+    -> restaurants (porque os restaurants tem meals no cardápio); */
+
     name: { type: String, required: true, minLength: 3 },
+    price: { type: Number, required: true },
     calories: { type: Number, required: true },
     ingredients: { type: String, required: true },
     description: { type: String, required: true, minLength: 10 },
